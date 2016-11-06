@@ -1,0 +1,27 @@
+{
+  "name": "thisorthat",
+  "version": "1.0.0",
+  "description": "A network for voting on anything",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timurtu/thisorthat.git"
+  },
+  "keywords": [
+    "this",
+    "or",
+    "that",
+    "vote",
+    "social",
+    "network"
+  ],
+  "author": "Timur Uzel <timurt.uzel@gmail.com> (https://github.com/timurtu)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timurtu/thisorthat/issues"
+  },
+  "homepage": "https://github.com/timurtu/thisorthat#readme"
+}
