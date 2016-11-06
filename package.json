@@ -31,6 +31,7 @@
     "babel-preset-es2016": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "bluebird": "^3.4.6",
+    "browser-sync": "^2.17.5",
     "css-loader": "^0.25.0",
     "domali": "^2.1.1",
     "file-loader": "^0.9.0",
