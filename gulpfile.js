@@ -13,15 +13,17 @@ const browserSync = require('browser-sync').create()
 const paths = {
   src: path.resolve('src'),
   dist: path.resolve('dist'),
-  bundle: path.resolve('dist/bundle.js'),
 }
 
 
-gulp.task('clean', () => rimrafAsync(paths.bundle))
+gulp.task('clean', () => rimrafAsync(paths.dist))
 
 gulp.task('bundle', ['clean'], () => execAsync('node_modules/.bin/webpack'))
 
-gulp.task('build', ['bundle'])
+gulp.task('copy', ['clean'], () => gulp.src(path.join(paths.src, '**/*.html'))
+  .pipe(gulp.dest(paths.dist)))
+
+gulp.task('build', ['bundle', 'copy'])
 
 gulp.task('build-reload', ['build'], done => {
   browserSync.reload()
@@ -30,12 +32,12 @@ gulp.task('build-reload', ['build'], done => {
 
 gulp.task('reload', () => browserSync.reload())
 
-gulp.task('serve', done => {
-  browserSync.init({server: './'})
+gulp.task('serve', ['build'], done => {
+  browserSync.init({server: paths.dist})
   done()
 })
 
-gulp.task('watch', ['serve'], () => {
+gulp.task('watch', ['build', 'serve'], () => {
   gulp.watch(path.join(paths.src, '**'), ['build-reload'])
 })
 
